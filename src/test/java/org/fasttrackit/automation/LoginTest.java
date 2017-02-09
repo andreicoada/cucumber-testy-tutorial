@@ -4,7 +4,6 @@ import org.fasttrackit.util.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,17 +12,18 @@ import static org.hamcrest.core.Is.is;
 
 public class LoginTest extends TestBase {
 
-    private  LoginPage loginPage;
+//    private  LoginPage page;
+    private  LoginView page = new LoginView();
 
-    public LoginTest() {
-        loginPage = PageFactory.initElements(driver, LoginPage.class);
-    }
+   // public LoginTest() {
+      //  page = PageFactory.initElements(driver, LoginPage.class);
+    //}
 
     @Test
     public void validLoginTest() {
-        openBrowser();
+        openLoginPage();
 
-        loginPage.login("eu@fast.com", "eu.pass");
+        page.login("eu@fast.com", "eu.pass");
 
         try {
             WebElement logoutBtn = driver.findElement(By.linkText("Logout"));
@@ -35,9 +35,9 @@ public class LoginTest extends TestBase {
 
     @Test
     public void invalidPasswordTest() {
-        openBrowser();
+        openLoginPage();
 
-        loginPage.login("eu@fast.com", "eu.pass123");
+        page.login("eu@fast.com", "eu.pass123");
 
         WebElement errorElement = driver.findElement(By.className("error-msg"));
         System.out.println(errorElement.getText());
@@ -47,8 +47,8 @@ public class LoginTest extends TestBase {
 
     @Test
     public void changePasswordWithInvalidCurrentPassword(){
-        openBrowser();
-        loginPage.login("eu@fast.com", "eu.pass");
+        openLoginPage();
+        page.login("eu@fast.com", "eu.pass");
         WebElement preferencesBtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
         preferencesBtn.click();
 
@@ -71,6 +71,7 @@ public class LoginTest extends TestBase {
       //  emailField.sendKeys(user);
        // passField.sendKeys(pass);
        // loginBtn.click();
+
 
 
 }

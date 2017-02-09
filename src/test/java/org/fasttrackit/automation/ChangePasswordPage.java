@@ -19,21 +19,21 @@ public class ChangePasswordPage {
     @FindBy(xpath = "//*[@id='preferences-win']//button[normalize-space(text())='Save']")
     private WebElement saveBtn;
     @FindBy(className = "status-msg")
-    private WebElement statusMsg;
+private WebElement statusMsg;
 
-    public  String getStatusMessage() {
+public  String getStatusMessage() {
         String msg = statusMsg.getText();
         System.out.println();
         return msg;
-    }
+        }
 
 
-    public void update(String currentPass, String newPass, String repeatNewPass) {
+public void update(String currentPass, String newPass, String repeatNewPass) {
         currentPasswordField.sendKeys(currentPass);
         newPasswordField.sendKeys(newPass);
         repeatPasswordField.sendKeys(repeatNewPass);
         saveBtn.click();
-    }
+        }
 
 
-}
+        }

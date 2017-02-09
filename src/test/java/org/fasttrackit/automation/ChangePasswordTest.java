@@ -26,7 +26,7 @@ public class ChangePasswordTest extends TestBase {
 
     @Test
     public void changePasswordWithInvalidCurrentPassword() {
-        openBrowser();
+        openLoginPage();
 
         loginPage.login("eu@fast.com", "eu.pass");
         WebElement preferencesBtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
@@ -48,7 +48,7 @@ public class ChangePasswordTest extends TestBase {
 
     @Test
     public void changePasswordWithValidPassword() {
-        openBrowser();
+        openLoginPage();
 
         loginPage.login("eu@fast.com", "eu.pass");
         WebElement preferencesBtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
@@ -62,7 +62,7 @@ public class ChangePasswordTest extends TestBase {
 
 
         public void changePasswordWithInvalidRepeatPassword() {
-            openBrowser();
+            openLoginPage();
 
             loginPage.login("eu@fast.com", "eu.pass");
             WebElement preferencesBtn = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
